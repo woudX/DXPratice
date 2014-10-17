@@ -36,6 +36,16 @@ void D3DApp::drawScene()
 
 }
 
+HINSTANCE D3DApp::getAppInst()
+{
+	return mhAppInst;
+}
+
+HWND D3DApp::getMainWnd()
+{
+	return mhMainWnd;
+}
+
 void D3DApp::initMainWindow()
 {
 	//	create the main app window
@@ -112,6 +122,11 @@ LRESULT D3DApp::WndProc(UINT msg, WPARAM wParam, LPARAM lParam)
 				enableFullScreenMode(false);
 			else if (wParam == 'F')
 				enableFullScreenMode(true);
+			else if (wParam == 'Q')
+			{
+				DestroyWindow(mhMainWnd);
+				return 0;
+			}
 		}
 	default:
 		break;
@@ -267,7 +282,7 @@ int D3DApp::run()
 				QueryPerformanceCounter(&nowTimeStamp);
 				float dt = (nowTimeStamp.QuadPart - prevTimeStamp.QuadPart) * secPerCnt;
 
-				if (dt > 1 / 30.0f)
+				if (dt > 1 / 60.0f)
 				{
 					updateScene(dt);	
 					drawScene();

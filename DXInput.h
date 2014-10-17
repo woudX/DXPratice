@@ -9,8 +9,6 @@
 
 #include "D3DUtil.h"
 
-DirectInput *gdxInput;
-
 class DirectInput
 {
 public:

@@ -1,7 +1,6 @@
 #include <iostream>
-
 #include "D3DApp.h"
-#include "D3DWinApp.h"
+#include "CubeDemo.h"
 #include "DXInput.h"
 
 int WINAPI WinMain(  HINSTANCE hInstance,  HINSTANCE hPrevInstance,  
@@ -13,7 +12,7 @@ int WINAPI WinMain(  HINSTANCE hInstance,  HINSTANCE hPrevInstance,
 	
 
 	_WndParams wndParam = {800, 600 , "TestWindow"};
-	D3DWinApp app(hInstance, wndParam, D3DDEVTYPE_HAL, D3DCREATE_HARDWARE_VERTEXPROCESSING);
+	CubeDemo app(hInstance, wndParam, D3DDEVTYPE_HAL, D3DCREATE_HARDWARE_VERTEXPROCESSING);
 	gd3dApp = &app;
 
 	DirectInput di(DISCL_NONEXCLUSIVE | DISCL_FOREGROUND, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);

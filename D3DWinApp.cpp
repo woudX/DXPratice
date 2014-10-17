@@ -1,4 +1,5 @@
 #include "D3DWinApp.h"
+#include "DXInput.h"
 
 D3DWinApp::D3DWinApp(HINSTANCE hInstance, _WndParams wndParams, D3DDEVTYPE devType,DWORD requestedVP)
 	:D3DApp(hInstance, wndParams, devType, requestedVP)
@@ -72,7 +73,7 @@ void D3DWinApp::drawScene()
 
 	HR(gd3dDevice->BeginScene());
 
-	mFont->DrawTextW(0, _T("Hello Direct3D"), -1, &formatRect, DT_CENTER | DT_VCENTER
+	mFont->DrawTextW(0, L"Hello Direct 3D!", -1, &formatRect, DT_CENTER | DT_VCENTER
 		, D3DCOLOR_XRGB(rand() % 256, rand() % 256, rand() % 256));
 	m_pGfs->display();
 
